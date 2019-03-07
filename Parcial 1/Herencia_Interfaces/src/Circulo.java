@@ -9,7 +9,7 @@
  * @author Jessica
  */
 public class Circulo extends Coordenada {
-    double radio;
+    private double radio;
     
     public Circulo (double radio, int x, int y){
         super (x,y);
@@ -21,6 +21,8 @@ public class Circulo extends Coordenada {
     public Circulo (){
         
     }
+    
+    
 
     public double getRadio() {
         return radio;
@@ -29,6 +31,15 @@ public class Circulo extends Coordenada {
 
     public void setRadio(int radio) {
         this.radio = radio;
+    }
+    
+    public double circunferencia (){
+        return 3.1416*(radio*2);
+    }
+    
+    public double area(){
+        return 3.1416*(radio*radio);
+        
     }
         
  }

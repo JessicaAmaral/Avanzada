@@ -10,31 +10,42 @@
  */
 public class Cilindro extends Circulo{
     
-    public double altura, area, volumen;
+    private double altura, area, volumen;
     
-    public Cilindro(double radio, int x, int y) {
+    public Cilindro(double radio, int x, int y, double altura) {
         
         super (radio, x, y);
-        this.altura=altura;
-        
-        
+        this.altura=altura;       
     }
-
     public Cilindro() {
         
     }
-    
-    public void volumen (){
+
+    public double getAltura() {
+        return altura;
+    }
+
+    public double getArea() {
+        return area;
+    }
+
+    public void setAltura(double altura) {
+        this.altura = altura;
+    }
+
+    public void setArea(double area) {
+        this.area = area;
+    }
+     
+    public double volumen (){
         
-        volumen=(3.1416*(radio*radio))*altura;
-        
-        
+        return super.area()*altura;        
     }
     
-    public void area(){
+    public double area (){
+        return super.circunferencia()*(altura)+(super.area()*2);
         
     }
-    
-   
+     
     
 }
