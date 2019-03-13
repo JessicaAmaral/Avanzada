@@ -13,26 +13,63 @@ import java.util.HashMap;
  */
 public class Nombres {
         
-    public static HashMap<String, Integer> Nombres;
-
-    static {
-        Nombres = new HashMap<>();
-        Nombres.put("uno", 1);
-        Nombres.put("dos", 2);
-        Nombres.put("tres", 3);
-        Nombres.put("cuatro", 4);
-        Nombres.put("cinco", 5);
-        Nombres.put("seis", 6);
-        Nombres.put("siete", 7);
-        Nombres.put("ocho", 8);
-        Nombres.put("nueve", 9);
-        Nombres.put("diez", 10);
-        Nombres.put("once", 11);
-        Nombres.put("doce", 12);
-        Nombres.put("trece", 13);
-        Nombres.put("catorce", 14);
-        Nombres.put("quince", 15);
-        Nombres.put("veinte", 20);
-    }
+    HashMap<String, Integer> numeros;
     
+    public Nombres(){
+        
+        //0-20
+        numeros.put("cero", 0);
+        numeros.put("uno", 1);
+        numeros.put("dos", 2);
+        numeros.put("tres", 3);
+        numeros.put("cuatro", 4);
+        numeros.put("cinco", 5);
+        numeros.put("seis", 6);
+        numeros.put("siete", 7);
+        numeros.put("ocho", 8);
+        numeros.put("nueve", 9);
+        numeros.put("diez", 10);
+        numeros.put("dieci", 10);
+        numeros.put("once", 11);
+        numeros.put("doce", 12);
+        numeros.put("trece", 13);
+        numeros.put("catorce", 14);
+        numeros.put("quince", 15);
+        numeros.put("veinte", 20);        
+        numeros.put("veinti", 20);
+        
+        // 30-1000
+        numeros.put("treinta", 30);
+        numeros.put("cuarenta", 40);
+        numeros.put("cincuenta", 50);
+        numeros.put("sesenta", 60);
+        numeros.put("setenta", 70);
+        numeros.put("ochenta", 80);
+        numeros.put("noventa", 90);
+        numeros.put("cien", 100);
+        numeros.put("ciento", 100);    
+        numeros.put("quinientos", 500);
+        numeros.put("milesimos", 1000);
+        
+        // multiplicativos
+        numeros.put("cientos", 100);
+        numeros.put("mil", 1000);
+        numeros.put("centesimo", 100);
+        numeros.put("milesimo", 1000);
+ 
+        // denominadores
+        numeros.put("entero", 1);
+        numeros.put("medio", 2);
+        numeros.put("tercio", 3);
+        numeros.put("cuarto", 4);
+        numeros.put("quinto", 5);
+        numeros.put("sexto", 6);
+        numeros.put("septimo", 7);
+        numeros.put("octavo", 8);
+        numeros.put("noveno", 9);
+        numeros.put("decimo", 10);
+        
+    }
 }
+    
+
