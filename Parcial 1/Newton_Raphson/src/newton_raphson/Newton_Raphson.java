@@ -22,16 +22,27 @@ public class Newton_Raphson {
         int a;
         System.out.println("Ingrese la cantidad de terminos");
         a = in.nextInt();
-        int array[][];
-        array=new int[1][a];
+        double ecuacion[][], x, precision;
+        ecuacion=new double[a][2];
         
-        for (int i=0;i<=a;i++){    
-            for (int j=0;j<=a;j++){
-                System.out.println("Ingrese la base");
-                array[]
+        for (int i=0;i<a;i++){    
+            System.out.println("Ingresa la base del termino "+(i+1));
+            ecuacion[i][0]=in.nextDouble();
+            System.out.println("Ingresa el exponente del termino "+(i+1));
+            ecuacion[i][1]=in.nextDouble();  
             }
+        
+        System.out.println("Ingrese el valor inicial que quiere que tome x: ");
+        x = in.nextDouble();
+        System.out.println("Ingrese la precision del resultado que desea: ");
+        precision = in.nextDouble();
+        Resolver resolver = new Resolver ();
+        System.out.println("El resultado mas aproximado es: "+(resolver.procedimiento(ecuacion, x, precision)));
         }
+    
+        
         
     }
     
-}
+    
+
