@@ -20,14 +20,14 @@ public class Newton_Raphson {
         // TODO code application logic here
         Scanner in = new Scanner (System.in);
         int a;
-        System.out.println("Ingrese el número máximo de exponentes");
+        System.out.println("Ingrese el número de términos");
         a = in.nextInt();
         double ecuacion[][], x, precision;
         ecuacion=new double[a][2];
 
         
         for (int i=0;i<a;i++){    
-            System.out.println("Ingresa el termino "+(i));
+            System.out.println("Ingresa el coeficiente "+(i));
             ecuacion[i][0]=in.nextDouble();
             System.out.println("Ingresa el exponente "+(i));
             ecuacion[i][1]=in.nextDouble();  
