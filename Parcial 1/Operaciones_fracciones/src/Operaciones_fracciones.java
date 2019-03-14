@@ -19,12 +19,13 @@ public class Operaciones_fracciones {
     public static void main(String[] args) {
         // TODO code application logic here
         Scanner in = new Scanner (System.in);      
-        String Cadena;
+        String cadena;
         
         System.out.println("Ingrese la operación que desea resolver");
-        Cadena = in.next();
-        DividirCadena dividir = new DividirCadena();
-        System.out.println(dividir.DividirCadena(Cadena));
+        cadena = in.nextLine();
+        Asignar enviar;
+        enviar = new Asignar();
+        enviar.reemplazar(cadena);
         
     }
     
