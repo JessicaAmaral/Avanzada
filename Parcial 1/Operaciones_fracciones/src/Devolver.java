@@ -21,7 +21,7 @@ public class Devolver {
     public Devolver() {
     res = new int[2][4];
         unidades_d = new String[]{"","enteros","medios","tercios","cuartos","quintos","sextos","septimos","octavos","novenos"};
-        unidades = new String[]{"cero","un","dos","tres","cuatro","cinco","seis","siete","ocho","nueve"};
+        unidades = new String[]{"cero","un","dos","tres","cuatro","cinco","seis","siete","ocho","nueve", "diez"};
         decenas = new String[]{"","diez","veinte","treinta","cuarenta","cincuenta","sesenta","setenta","ochenta","noventa"};
         centenas = new String[]{"","cien","doscientos","trescientos","cuatrocientos","quinientos","seiscientos","setecientos","ochocientos","novecientos"};
     }

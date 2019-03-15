@@ -28,20 +28,32 @@ public class Resolver {
     double procedimiento (double [][] ecuacion, double x, double precision){
         double sustitucion_ecuacion = 0, sustitucion_derivada = 0;
         double[][] derivada;
+        double y = x;
         derivada = derivar (ecuacion);
         do{
+            sustitucion_ecuacion = 0;
+            sustitucion_derivada = 0;
             for(int i=0; i<ecuacion.length; i++){
                 sustitucion_ecuacion+=(ecuacion[i][0]*Math.pow(x, ecuacion[i][1]));
                 sustitucion_derivada+=(derivada[i][0]*Math.pow(x, derivada[i][1]));
             }
+            System.out.println("Ecuacion: "+sustitucion_ecuacion+" Derivada: "
+            + sustitucion_derivada+ " x: "+x);  
+            
             x = x - (sustitucion_ecuacion/sustitucion_derivada);
-        }while (x>precision);
 
+        }while (Math.abs(sustitucion_ecuacion)>precision); 
+            
         return x;
-    }
+        }
+}
+
+
+        
+    
 
    
     
-}
+
     
 

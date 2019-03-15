@@ -99,6 +99,7 @@ public class Asignar {
                 
             }
         }
+        System.out.println(numerador);
         return numerador;
     }
     
@@ -110,26 +111,24 @@ public class Asignar {
             /*aumenta el indice del numero cardinal y compara si es igual
              * al numero de la cadena separada 
              */
-            for (int y = 0; y< numero_cardinal.length-1; y++) {
-                if (separar_cad[r].equals(numero_cardinal[y] + "s") ||
-                    separar_cad[r].equals(numero_cardinal[y])){
+            for (int y = 0; y< cardinal.length-1; y++) {
+                if (separar_cad[r].equals(cardinal[y] +"avo") || 
+                    separar_cad[r].equals(cardinal[y] +"avos" )){
                     denominador+=numero_cardinal[y];
+                    break;
                 }
-                else if (separar_cad[r].equals(numero_cardinal[y] +"avo") || 
-                    separar_cad[r].equals(numero_cardinal[y] +"avos" )){
-                    denominador+=numero_cardinal[y];
-                }
-                for (int j = 0; j < numero_cardinal.length-1; j++) {
-                    for (int k = 0; k < numero_cardinal.length-1; k++) {
-                        if (separar_cad[r].equals((numero_cardinal[j]) +"i"+ 
-                        numero_cardinal[k]+"avo")||separar_cad[r].equals
-                        (numero_cardinal[j]+"i"+numero_cardinal[k]+"avos")){
+            }
+                for (int j = 0; j < cardinal.length-1; j++) {
+                    for (int k = 0; k < cardinal.length-1; k++) {
+                        if (separar_cad[r].equals((cardinal[j]) +"i"+ 
+                        cardinal[k]+"avo")||separar_cad[r].equals
+                        (cardinal[j]+"i"+cardinal[k]+"avos")){
                         denominador+=numero_cardinal[j]+numero_cardinal[k];
+                        break;
                         }
                     }                    
                 } 
             }
-        }
         
         for (int r = i; r <= f; r++) {
             for (int j = 0; j < fraccionario.length-1; j++) {
@@ -140,6 +139,7 @@ public class Asignar {
                 }  
             }
         }
+        System.out.println(denominador);
         return denominador;
     
     }
