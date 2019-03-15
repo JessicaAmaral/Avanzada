@@ -10,49 +10,60 @@
  * @author Jessica
  */
 public class Operaciones {
-int num_res;
-int den_res;
+int numerador; //numerador resultante
+int denominador; //denominador resultante 
+
     public Operaciones() {
     }
-    
-    public void Resuelve(int n1, int d1, int op, int n2, int d2)
+    /**
+     * 
+     * @param numerador1 numerador de la primera fracción.
+     * @param denominador1 denominador de la primera fracción.
+     * @param operacion operación a realizar (según el número recibido de la 
+     * clase anterior.
+     * @param numerador2 numerador de la segunda fracción.
+     * @param denominador2 denominador de la segunda fracción.
+     */
+    public void Resuelve(int numerador1, int denominador1, int operacion, 
+            int numerador2, int denominador2)
     {
 
-        if(d1!=0 || d2!=0)
+        if(denominador1!=0 || denominador2!=0)
         {
-            switch(op)
+            switch(operacion)
             {
                 case 1: //Suma
-                    num_res=(n1*d2)+(n2*d1);
-                    den_res=(d1*d2);
+                    numerador=(numerador1*denominador2)+(numerador2*denominador1);
+                    denominador=(denominador1*denominador2);
                     Simplifica();
                     break;
                 case 2: //Resta
-                    num_res=(n1*d2)-(n2*d1);
-                    den_res=(d1*d2);
+                    numerador=(numerador1*denominador2)-(numerador2*denominador1);
+                    denominador=(denominador1*denominador2);
                     Simplifica();
                     break;
                 case 3: //Multiplicacion
-                    num_res=(n1*n2);
-                    den_res=(d1*d2);
+                    numerador=(numerador1*numerador2);
+                    denominador=(denominador1*denominador2);
                     Simplifica();
                     break;
                 case 4: //Division
-                    if(n2!=0)
+                    if(numerador2!=0)
                     {
-                        num_res=(n1*d2);
-                        den_res=(n2*d1);
+                        numerador=(numerador1*denominador2);
+                        denominador=(numerador2*denominador1);
                         Simplifica();
                     }
                     else
                     {
-                        System.out.println("Error: el numerador del divisor no puede ser cero");
+                        System.out.println("Error: el numerador del divisor "
+                                + "no puede ser cero");
                     }
                     break;
             }
             Devolver imprimir;        
             imprimir=new Devolver();
-            imprimir.Convertir(num_res,den_res);
+            imprimir.Convertir(numerador,denominador);
         }
         else
         {
@@ -63,14 +74,18 @@ int den_res;
     private void Simplifica()
     {
         int n = mcd();
-        num_res=num_res/n;
-        den_res=den_res/n;
+        numerador=numerador/n;
+        denominador=denominador/n;
     }
     
     private int mcd()
-    {//Algoritmo de Euclides encontrado en internet jeje
-        int u = Math.abs(num_res);
-        int v = Math.abs(den_res);
+    {/**
+     * Algoritmo de Euclides encontrado en internet jeje. Utilizado para la 
+     * simplificación de fracciones.
+     */ 
+        
+        int u = Math.abs(numerador);
+        int v = Math.abs(denominador);
         if(v==0)
         {
             return u;

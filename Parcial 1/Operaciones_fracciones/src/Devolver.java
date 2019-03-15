@@ -9,164 +9,184 @@
  * @author Jessica
  */
 public class Devolver {
-    int[][] res;
-    String[] unidades_d;
+    int[][] resultado;
+    String[] unidad_denominador;
     String[] unidades;
     String[] decenas;
     String[] centenas;
     
-    String Num_res;
-    String Den_res;
+    String resultado_num;
+    String resultado_den;
+    
     
     public Devolver() {
-    res = new int[2][4];
-        unidades_d = new String[]{"","enteros","medios","tercios","cuartos","quintos","sextos","septimos","octavos","novenos"};
-        unidades = new String[]{"cero","un","dos","tres","cuatro","cinco","seis","siete","ocho","nueve", "diez"};
-        decenas = new String[]{"","diez","veinte","treinta","cuarenta","cincuenta","sesenta","setenta","ochenta","noventa"};
-        centenas = new String[]{"","cien","doscientos","trescientos","cuatrocientos","quinientos","seiscientos","setecientos","ochocientos","novecientos"};
+    resultado = new int[2][4];
+        unidad_denominador = new String[]{"","enteros","medios","tercios","cuartos",
+        "quintos","sextos","septimos","octavos","novenos"};
+        unidades = new String[]{"cero","un","dos","tres","cuatro","cinco",
+        "seis","siete","ocho","nueve", "diez"};
+        decenas = new String[]{"","diez","veinte","treinta","cuarenta",
+        "cincuenta","sesenta","setenta","ochenta","noventa"};
+        centenas = new String[]{"","cien","doscientos","trescientos",
+        "cuatrocientos","quinientos","seiscientos","setecientos","ochocientos",
+        "novecientos"};
+        
     }
     
-    public void Convertir(int resNum, int resDen)
+    public void Convertir(int res_numerador, int res_denominador)
     {
-        System.out.println(""+resNum+"/"+resDen);
-        res[0][0] = resNum / 1000;
-        res[0][1] = (resNum % 1000) / 100;
-        res[0][2]  = (resNum % 100) / 10;
-        res[0][3] = (resNum % 10);
-        res[1][0] = resDen / 1000;
-        res[1][1] = (resDen % 1000) / 100;
-        res[1][2]  = (resDen % 100) / 10;
-        res[1][3] = (resDen % 10);
-        convNum();
-        convDen();
-        System.out.println(""+Num_res+" "+Den_res);
+        /*Separa los numeros por unidades, decenas y centenas. 
+         *Envía a los elementos para su conversión a string y los imprime.
+         */
+
+        System.out.println(""+res_numerador+"/"+res_denominador);
+        resultado[0][0] = res_numerador / 1000;
+        resultado[0][1] = (res_numerador % 1000) / 100;
+        resultado[0][2]  = (res_numerador % 100) / 10;
+        resultado[0][3] = (res_numerador % 10);
+        resultado[1][0] = res_denominador / 1000;
+        resultado[1][1] = (res_denominador % 1000) / 100;
+        resultado[1][2]  = (res_denominador % 100) / 10;
+        resultado[1][3] = (res_denominador % 10);
+        convertir_numerador();
+        convertir_denominador();
+        System.out.println(""+resultado_num+" "+resultado_den);
     }
+    /**
+     * Convierte entero a string usando los arreglos antes definidos
+     * según unidades, decenas y centenas.
+     */
     
-    public void convNum()
+    public void convertir_numerador()
     {
-        Num_res="";
-        if(res[0][0]>=1)
+        /**
+         * Hace las comparaciones correspondientes con todas las unidades.
+         */
+        resultado_num="";
+        if(resultado[0][0]>=1)
         {
-            if(res[0][0]==1)
-                Num_res+="mil ";
+            if(resultado[0][0]==1)
+                resultado_num+="mil ";
             else
-                Num_res+=unidades[res[0][0]]+" mil ";
+                resultado_num+=unidades[resultado[0][0]]+" mil ";
         }
-        if(res[0][1]>=1)
+        if(resultado[0][1]>=1)
         {
-            if(res[0][1]==1&&(res[0][2]>=1||res[0][3]>=1))
-                Num_res+="ciento ";
+            if(resultado[0][1]==1&&(resultado[0][2]>=1||resultado[0][3]>=1))
+                resultado_num+="ciento ";
             else
-                Num_res+=centenas[res[0][1]]+" ";
+                resultado_num+=centenas[resultado[0][1]]+" ";
         }
-        if(res[0][2]>=1)
+        if(resultado[0][2]>=1)
         {
-            if(res[0][2]==1)
+            if(resultado[0][2]==1)
             {
-                if(res[0][3]==0)
-                    Num_res+="diez";
-                if(res[0][3]==1)
-                    Num_res+="once";
-                if(res[0][3]==2)
-                    Num_res+="doce";
-                if(res[0][3]==3)
-                    Num_res+="trece";
-                if(res[0][3]==4)
-                    Num_res+="catorce";
-                if(res[0][3]==5)
-                    Num_res+="quince";
-                if(res[0][3]>=6)
-                    Num_res+="dieci";
+                if(resultado[0][3]==0)
+                    resultado_num+="diez";
+                if(resultado[0][3]==1)
+                    resultado_num+="once";
+                if(resultado[0][3]==2)
+                    resultado_num+="doce";
+                if(resultado[0][3]==3)
+                    resultado_num+="trece";
+                if(resultado[0][3]==4)
+                    resultado_num+="catorce";
+                if(resultado[0][3]==5)
+                    resultado_num+="quince";
+                if(resultado[0][3]>=6)
+                    resultado_num+="dieci";
             }
-            else if(res[0][2]==2)
+            else if(resultado[0][2]==2)
             {
-                if(res[0][3]>=1)
-                    Num_res+="veinti";
+                if(resultado[0][3]>=1)
+                    resultado_num+="veinti";
                 else
-                    Num_res+="veinte";
+                    resultado_num+="veinte";
             }
-            else if(res[0][3]==0)
+            else if(resultado[0][3]==0)
             {
-                Num_res+=decenas[res[0][2]];
+                resultado_num+=decenas[resultado[0][2]];
             }
             else
             {
-                Num_res+=decenas[res[0][2]]+" y ";
+                resultado_num+=decenas[resultado[0][2]]+" y ";
             }
         }
-        if (res[0][3]>=1)
+        if (resultado[0][3]>=1)
         {
-            if((res[0][2]==1 && res[0][3]>=6)||(res[0][2]==2)||(res[0][2]>=3)||(res[0][0]==0||res[0][1]==0||res[0][2]==0))
-                Num_res+=unidades[res[0][3]];
+            if((resultado[0][2]==1 && resultado[0][3]>=6)||(resultado[0][2]==2)
+                ||(resultado[0][2]>=3)||(resultado[0][0]==0||resultado[0][1]==0
+                ||resultado[0][2]==0))
+                resultado_num+=unidades[resultado[0][3]];
         }
     }
     
-    public void convDen()
+    public void convertir_denominador()
     {
-        Den_res="";
-        if(res[1][0]>=1)
+        resultado_den="";
+        if(resultado[1][0]>=1)
         {
-            if(res[1][1]==0&&res[1][2]==0&&res[1][3]==0)
-                Den_res+=unidades[res[1][0]]+"milesimos";
-            else if(res[1][0]==1)
-                Den_res+="mil";
+            if(resultado[1][1]==0&&resultado[1][2]==0&&resultado[1][3]==0)
+                resultado_den+=unidades[resultado[1][0]]+"milesimos";
+            else if(resultado[1][0]==1)
+                resultado_den+="mil";
             else
-                Den_res+=unidades[res[1][0]]+"mil";
+                resultado_den+=unidades[resultado[1][0]]+"mil";
         }
-        if(res[1][1]>=1)
+        if(resultado[1][1]>=1)
         {
-            if(res[1][1]==1&&res[1][2]==0&&res[1][3]==0)
-                Den_res+="centesimos";
-            else if(res[1][1]==1&&(res[1][2]>=1||res[1][3]>=1))
-                Den_res+="ciento";
-            else if(res[1][1]>=2&&res[1][2]==0&&res[1][3]==0)
-                Den_res+=centenas[res[1][1]]+"avos";
+            if(resultado[1][1]==1&&resultado[1][2]==0&&resultado[1][3]==0)
+                resultado_den+="centesimos";
+            else if(resultado[1][1]==1&&(resultado[1][2]>=1||resultado[1][3]>=1))
+                resultado_den+="ciento";
+            else if(resultado[1][1]>=2&&resultado[1][2]==0&&resultado[1][3]==0)
+                resultado_den+=centenas[resultado[1][1]]+"vos";
             else
-                Den_res+=centenas[res[1][1]];
+                resultado_den+=centenas[resultado[1][1]];
         }
-        if(res[1][2]>=1)
+        if(resultado[1][2]>=1)
         {
-            if(res[1][2]==1)
+            if(resultado[1][2]==1)
             {
-                if(res[1][3]==0&&(res[1][0]==0&&res[1][1]==0))
-                    Den_res+="decimos";
-                else if(res[1][3]==0)
-                    Den_res+="diezavos";
-                else if(res[1][3]==1)
-                    Den_res+="onceavos";
-                else if(res[1][3]==2)
-                    Den_res+="doceavos";
-                else if(res[1][3]==3)
-                    Den_res+="treceavos";
-                else if(res[1][3]==4)
-                    Den_res+="catorceavos";
-                else if(res[1][3]==5)
-                    Den_res+="quinceavos";
-                else if(res[1][3]>=6)
-                    Den_res+="dieci";
+                if(resultado[1][3]==0&&(resultado[1][0]==0&&resultado[1][1]==0))
+                    resultado_den+="decimos";
+                else if(resultado[1][3]==0)
+                    resultado_den+="diezavos";
+                else if(resultado[1][3]==1)
+                    resultado_den+="onceavos";
+                else if(resultado[1][3]==2)
+                    resultado_den+="doceavos";
+                else if(resultado[1][3]==3)
+                    resultado_den+="treceavos";
+                else if(resultado[1][3]==4)
+                    resultado_den+="catorceavos";
+                else if(resultado[1][3]==5)
+                    resultado_den+="quinceavos";
+                else if(resultado[1][3]>=6)
+                    resultado_den+="dieci";
             }
-            else if(res[1][2]==2)
+            else if(resultado[1][2]==2)
             {
-                if(res[1][3]==0)
-                    Den_res+="veinteavos";
+                if(resultado[1][3]==0)
+                    resultado_den+="veinteavos";
                 else
-                    Den_res+="veinti";
+                    resultado_den+="veinti";
             }
-            else if(res[1][3]==0)
+            else if(resultado[1][3]==0)
             {
-                Den_res+=decenas[res[1][2]]+"avos";
+                resultado_den+=decenas[resultado[1][2]]+"vos";
             }
             else
             {
-                Den_res+=decenas[res[1][2]]+"i";
+                resultado_den+=decenas[resultado[1][2]]+"i";
             }
         }
-        if (res[1][3]>=1)
+        if (resultado[1][3]>=1)
         {
-            if((res[1][2]==1 && res[1][3]>=6)||(res[1][2]==2)||(res[1][2]>=3))
-                Den_res+=unidades[res[1][3]]+"avos";
-            else if(res[1][0]==0&&res[1][1]==0&&res[1][2]==0)
-                Den_res+=unidades_d[res[1][3]];
+            if((resultado[1][2]==1 && resultado[1][3]>=6)||(resultado[1][2]==2)||(resultado[1][2]>=3))
+                resultado_den+=unidades[resultado[1][3]]+"vos";
+            else if(resultado[1][0]==0&&resultado[1][1]==0&&resultado[1][2]==0)
+                resultado_den+=unidad_denominador[resultado[1][3]];
         }
     }
 }
