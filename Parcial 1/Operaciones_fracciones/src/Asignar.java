@@ -84,16 +84,9 @@ public class Asignar {
             numerador2=convertir_numerador (i+1,separar_cad.length-1 );
             denominador2=convertir_denominador (i+1, separar_cad.length-1);
         
-        if (numerador1==0 || numerador2 == 0) {
-            System.out.println("Error al ingresar el numerador");    
-        }
-        if (denominador1==0 || denominador2 == 0) {
-            System.out.println("Error al ingresar el denominador");    
-        }
-        
-        Operaciones resolver;
-        resolver = new Operaciones();
-        resolver.Resuelve(numerador1,denominador1,operacion,numerador2,denominador2);
+            Operaciones resolver;
+            resolver = new Operaciones();
+            resolver.Resuelve(numerador1,denominador1,operacion,numerador2,denominador2);
     }
     
     private int convertir_numerador (int i, int f){

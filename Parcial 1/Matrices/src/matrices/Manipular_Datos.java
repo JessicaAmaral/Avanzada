@@ -18,8 +18,8 @@ class Manipular_Datos {
     
     public Manipular_Datos(int fil, int col) {
         
-        int fila = fil;
-        int columna = col;
+        fila = fil;
+        columna = col;
         
         if (fila>20 || columna < 2) {
             
@@ -33,36 +33,44 @@ class Manipular_Datos {
     }
     
     public void llenar_matriz (){
-        
-        for (int i = 0; i <= fila; i++) {
-            for (int j = 0; j <= columna; j++) {
+  
+        for (int i = 0; i < fila; i++) {
+            for (int j = 0; j < columna; j++) {
                 
                 System.out.println("Ingrese el número en la posición"+
                         "["+i+"]"+"["+j+"]");
-                matriz[i][j]=in.nextFloat();
-                
+                matriz[i][j]=in.nextFloat();                
             }           
         }
-    mostrar_matriz();
+        System.out.println("Resultado: ");
+        mostrar_matriz();
+        System.out.println("\n");
+        
     }
     
     public void mostrar_matriz(){
         
-        for (int i = 0; i <= fila; i++) {
-            System.out.print("|");
-            for (int j = 0; j <= columna; j++) {
-                
-                System.out.print(matriz[i][j]);  
-            }                      
-        }    
+        for(int i = 0; i < fila; i++)
+        {
+            System.out.print("| ");
+            
+            for(int j = 0; j < columna; j++)
+            {
+                System.out.print(matriz[i][j]);
+                System.out.print("  ");
+               
+            }
+
+            System.out.print("|\n");
+        } 
+    }  
+
+    public double getMatriz(int i, int j) {
+        return matriz[i][j];
     }
 
-    public double[][] getMatriz() {
-        return matriz;
-    }
-
-    public void setMatriz(double[][] matriz) {
-        this.matriz = matriz;
+    public void setMatriz(int i, int j, double insertado) {
+        matriz[i][j]=insertado;
     }
 
     public int getFila() {

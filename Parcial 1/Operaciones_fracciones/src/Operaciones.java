@@ -43,6 +43,10 @@ int denominador; //denominador resultante
                     Simplifica();
                     break;
                 case 3: //Multiplicacion
+                    if (numerador==0){
+                        System.out.println("Error");
+                        break;
+                    }
                     numerador=(numerador1*numerador2);
                     denominador=(denominador1*denominador2);
                     Simplifica();
