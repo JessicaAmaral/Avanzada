@@ -71,7 +71,7 @@ public class Formulario extends JFrame implements ActionListener{
             
         else if (a.getSource() == boton2){
             
-                metodo2();
+            metodo2();
 
         }
         
